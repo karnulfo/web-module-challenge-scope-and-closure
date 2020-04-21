@@ -79,60 +79,22 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(callback, item){
-let arr = [];
-let arr2= [];
-const reducer = (homeS, awayS) => homeS + awayS;
-let homeS = function (){
+let homeScore = 0
+let awayScore = 0
+
+
 for (let i = 0; i <= item; i++){
-  let homeSs = homeS * callback
-  return arr.push(homeSs)
+  homeScore += callback();
+  awayScore += callback();
 }
-let awayS = function(){
-  for (let i = 0; i <= item; i++){
-    let awaySs = awayS * callback
-    return arr.push(awaySs)
+return  {
+"Home" : homeScore,
+"Away" : awayScore,
 }
-return arr.reduce(reducer);
-}}
+
 }
 console.log(finalScore(inning, 9));
 
-
-  /////////////////////////////////////////
-//   let arr =[];
-//   let arr2 = [];
-//   let homeS = arr.map(callback) * item;
-//   // homeS++;
-//   let awayS = arr2.map(callback) * item;
-//   // awayS++;
-//   let tScore = {
-//     "Home" : homeS,
-//     "Away" : awayS,
-//   };
-//   console.log(homeS);
-//   return tScore;
-
-// }
-
-// console.log(finalScore(inning, 9));
-
-///////////////////////////////////////////
-//   let finalS = callback[randomNumber]
-//   var add = score
-//   return function score(){
-//   for (let i = 0; i <= randomNumber; i++){
-  
-// }
-
-//   }
-
-  
-
-// )
-  /*Code Here*/
-
-
-console.log(finalScore(inning, 6))
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -154,9 +116,12 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 
 Final Score: awayTeam - homeTeam */
-
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function getInningScore(parameter){
+  let home = parameter();
+  let away = parameter();
+}
+function scoreboard(getInningScore, inning, numberi) {
+  
 }
 
 
