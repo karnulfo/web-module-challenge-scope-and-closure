@@ -27,11 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * counter 1 returns a function, and all the works is done under the same function. Besides that, counter1 creates a variable only available for that function while counter 2 makes a variable for the whole code. 
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * Counter1, besides having 2 functions, it creates a variable only for that block of code. 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *When you don't wan't to create a variable that will be used in multiple places in your code, you want to use counter1 as it does not affect the rest of the code. 
 */
 
 // counter1 code
@@ -56,12 +56,14 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
+let randomNumber = Math.floor((Math.random() )* 3);
 
+return randomNumber
     /*Code Here*/
 
 }
-
+console.log(inning())
 /* Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
@@ -76,12 +78,61 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(callback, item){
+let arr = [];
+let arr2= [];
+const reducer = (homeS, awayS) => homeS + awayS;
+let homeS = function (){
+for (let i = 0; i <= item; i++){
+  let homeSs = homeS * callback
+  return arr.push(homeSs)
+}
+let awayS = function(){
+  for (let i = 0; i <= item; i++){
+    let awaySs = awayS * callback
+    return arr.push(awaySs)
+}
+return arr.reduce(reducer);
+}}
+}
+console.log(finalScore(inning, 9));
 
+
+  /////////////////////////////////////////
+//   let arr =[];
+//   let arr2 = [];
+//   let homeS = arr.map(callback) * item;
+//   // homeS++;
+//   let awayS = arr2.map(callback) * item;
+//   // awayS++;
+//   let tScore = {
+//     "Home" : homeS,
+//     "Away" : awayS,
+//   };
+//   console.log(homeS);
+//   return tScore;
+
+// }
+
+// console.log(finalScore(inning, 9));
+
+///////////////////////////////////////////
+//   let finalS = callback[randomNumber]
+//   var add = score
+//   return function score(){
+//   for (let i = 0; i <= randomNumber; i++){
+  
+// }
+
+//   }
+
+  
+
+// )
   /*Code Here*/
 
-}
 
+console.log(finalScore(inning, 6))
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
