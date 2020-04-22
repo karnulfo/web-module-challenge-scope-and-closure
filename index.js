@@ -119,9 +119,19 @@ Final Score: awayTeam - homeTeam */
 function getInningScore(parameter){
   let home = parameter();
   let away = parameter();
+  return {home, away}
 }
+console.log(getInningScore(inning))
 function scoreboard(getInningScore, inning, numberi) {
-  
+  let home = 0;
+  let away = 0;
+  for (let i=0; i < numberi ; i++){
+    const score = getInningScore(inning);
+    home += score.home;
+    away += score.away;
+    console.log ("Inning: " + (i + 1) + " Away Team: " + away + "Home Team: " + home)
+  }
+  return {home, away}
 }
 
-
+console.log(scoreboard(getInningScore, inning, 9));
